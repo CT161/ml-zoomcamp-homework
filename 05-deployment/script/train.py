@@ -31,8 +31,8 @@ sys.path.insert(0, str(MODEL_DIR))
 DEFAULT_DATA = BASE_DIR / "data" / "course_lead_scoring_2026.csv"
 DEFAULT_MODEL = MODEL_DIR / "pipeline.bin"
 
-print("Data path:", DEFAULT_DATA)
-print("File exists:", DEFAULT_DATA.is_file())
+# DEBUG print("Data path:", DEFAULT_DATA)
+# DEBUG ("File exists:", DEFAULT_DATA.is_file())
 
 def read_training_rows(
     path: Path,
