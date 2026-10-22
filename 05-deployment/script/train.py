@@ -10,6 +10,8 @@ import csv
 import hashlib
 import json
 import pickle
+import sys
+
 from   pathlib                    import Path
 from   typing                     import Any
 
@@ -62,7 +64,7 @@ def read_training_rows(
 
 def build_pipeline():
     return make_pipeline(
-        DictVectorizer(),
+        DictVectorizer(sparse=False),
         LogisticRegression(
             solver="liblinear",
             C=1.0,
