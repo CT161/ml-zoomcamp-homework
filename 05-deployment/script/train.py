@@ -1,5 +1,7 @@
 # FILENAME:     'train.py'
-# PREREQUISITE: 'model.py' MUST BE IN THRE SAME DIRECTORY AS THIS PYTHON SCR
+# PREREQUISITE: THESE FILES MUST BE IN THRE SAME DIRECTORY AS THIS PYTHON SCRIPT
+#                 'course_lead_scoring_2026.csv'
+#                 'model.py' 
 
 from __future__                   import annotations
 
@@ -17,10 +19,18 @@ from   sklearn.pipeline           import make_pipeline
 
 from   model                      import FEATURES, NUMERICAL_FEATURES, normalize_record
 
+BASE_DIR = Path(__file__).resolve().parents[1]
+MODEL_DIR = BASE_DIR / "model"
 
-DEFAULT_DATA = Path(__file__).resolve().parents[2] / "data" / "course_lead_scoring_2026.csv"
-DEFAULT_MODEL = Path(__file__).resolve().parent / "pipeline.bin"
+# Make 05-deployment/model/model.py importable.
+sys.path.insert(0, str(MODEL_DIR))
 
+
+DEFAULT_DATA = BASE_DIR / "data" / "course_lead_scoring_2026.csv"
+DEFAULT_MODEL = MODEL_DIR / "pipeline.bin"
+
+print("Data path:", DEFAULT_DATA)
+print("File exists:", DEFAULT_DATA.is_file())
 
 def read_training_rows(
     path: Path,
