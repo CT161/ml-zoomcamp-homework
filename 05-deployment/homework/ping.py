@@ -10,6 +10,7 @@ app = FastAPI(title="ping")
 def ping():
     return "PONG"
 
+# SET ENDPOINT ENGINE, HOST AND PORT
 if __name__ == "__main__":
     # we want 'uvicorn' to run this application
     # this should be a localhost service (host="0.0.0.0")
