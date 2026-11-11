@@ -1,5 +1,5 @@
 [project]
-name             = "plants-package"
+name = "plants-package"
 version = "0.1.0"
 description = "Use Australian plant translocation database data to predict whether a translocated plant will survive."
 readme = "README.md"
@@ -34,9 +34,9 @@ dependencies = [
     "uvicorn==0.54.0",
 ]
 
-[project.scripts] 
-plants-package = "plants_package:main"
-
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
+
+[tool.uv_build]
+packages = ["src/plants_app"]
