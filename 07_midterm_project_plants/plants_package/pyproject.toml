@@ -32,6 +32,7 @@ dependencies = [
     "typing-inspection==0.4.5",
     "tzdata==2026.6",
     "uvicorn==0.54.0",
+    "xgboost>=3.2.0",
 ]
 
 [build-system]
