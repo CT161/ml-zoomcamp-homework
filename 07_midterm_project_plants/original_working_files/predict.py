@@ -19,8 +19,23 @@ from   pydantic import BaseModel, ConfigDict, field_validator, model_validator
 BASE_DIR = Path(__file__).resolve().parent
 
 # Build absolute paths to your model files
-MODEL_PATH = BASE_DIR / "model_C=0.01.bin"
+# MODEL_PATH = BASE_DIR / "model_C=0.01.bin"
 # or: model_path = BASE_DIR / "final_xgb_model.joblib"
+
+
+# Get the directory where predict.py is currently located (src/plants_app)
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "model_C=0.01.bin"
+
+# Load the model safely
+with MODEL_PATH.open("rb") as model_file:
+    model = pickle.load(model_file)
+
+
+
+
+
+
 
 
 
