@@ -1,14 +1,14 @@
-# fly.toml app configuration file generated for plants-package on 2026-11-12T19:51:31-05:00
+# fly.toml app configuration file generated for plants-package-gentle-beacon-742 on 2026-11-12T21:54:31-05:00
 #
 # See https://docs.fly.io/reference/configuration for information about how to use this file.
 #
 
-app = 'plants-package'
+app = 'plants-package-gentle-beacon-742'
 primary_region = 'ewr'
 
 [build]
 [http_service]
-  internal_port = 8000
+  internal_port = 9696
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true

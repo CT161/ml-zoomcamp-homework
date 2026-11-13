@@ -7,7 +7,7 @@ app = 'plants-app-verdant-lake-1279'
 primary_region = 'ewr'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 9696
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
