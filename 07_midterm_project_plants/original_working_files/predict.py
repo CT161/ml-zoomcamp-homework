@@ -14,7 +14,7 @@ from pydantic import BaseModel, ConfigDict, field_validator, model_validator
 # predict.py is in src/plants_app/
 # Go up two levels (.parent.parent) to reach the package root directory
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR.parent.parent / "model_C=0.01.bin"
+MODEL_PATH = BASE_DIR / "model_C=0.01.bin"
 
 # Load the model safely
 with MODEL_PATH.open("rb") as model_file:
