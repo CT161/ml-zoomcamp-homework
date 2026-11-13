@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for plants-package-dusky-canyon-711 on 2026-11-12T22:14:41-05:00
+# fly.toml app configuration file generated for plants-package-cool-paper-5882 on 2026-11-12T22:18:00-05:00
 #
 # See https://docs.fly.io/reference/configuration for information about how to use this file.
 #
 
-app = 'plants-package-dusky-canyon-711'
+app = 'plants-package-cool-paper-5882'
 primary_region = 'ewr'
 
 [build]
