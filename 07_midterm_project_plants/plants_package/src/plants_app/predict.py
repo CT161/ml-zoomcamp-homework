@@ -13,7 +13,8 @@ from   pydantic import BaseModel, ConfigDict, field_validator, model_validator
 # ============================================================
 # The file exported during training contains a single sklearn Pipeline:
 # DictVectorizer followed by the trained model.
-MODEL_PATH       = Path("model_C=0.01.bin")
+BASE_DIR         = Path(__file__).resolve().parent
+MODEL_PATH       = BASE_DIR.parent.parent / "model_C=0.01.bin"
 
 with MODEL_PATH.open("rb") as model_file:
     model_pipeline = pickle.load(model_file)
