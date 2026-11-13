@@ -17,7 +17,7 @@ BASE_DIR         = Path(__file__).resolve().parent
 MODEL_PATH       = BASE_DIR.parent.parent / "model_C=0.01.bin"
 
 with MODEL_PATH.open("rb") as model_file:
-    model_pipeline = pickle.load(model_file)
+    model_pipeline = pickle.load(model_file) 
 
 
 # ============================================================
