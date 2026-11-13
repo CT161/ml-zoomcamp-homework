@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for plants-package-gentle-beacon-742 on 2026-11-12T21:54:31-05:00
+# fly.toml app configuration file generated for plants-package-dusky-canyon-711 on 2026-11-12T22:14:41-05:00
 #
 # See https://docs.fly.io/reference/configuration for information about how to use this file.
 #
 
-app = 'plants-package-gentle-beacon-742'
+app = 'plants-package-dusky-canyon-711'
 primary_region = 'ewr'
 
 [build]
@@ -17,6 +17,5 @@ primary_region = 'ewr'
 
 [[vm]]
   memory = '1gb'
-  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 1024
