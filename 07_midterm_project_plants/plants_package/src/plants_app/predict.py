@@ -14,7 +14,7 @@ from   pydantic import BaseModel, ConfigDict, field_validator, model_validator
 # The file exported during training contains a single sklearn Pipeline:
 # DictVectorizer followed by the trained model.
 BASE_DIR         = Path(__file__).resolve().parent
-MODEL_PATH       = BASE_DIR / "model_C=0.01.bin"
+MODEL_PATH       = BASE_DIR.parent / "plants_app" / "model_C=0.01.bin"
 
 with MODEL_PATH.open("rb") as model_file:
     model_pipeline = pickle.load(model_file) 
@@ -121,13 +121,13 @@ YES_NO_MAP       = {
                         "r": "yes",
                         "t": "yes",
                         "w": "yes",
-                        "u": "unk",
+                        "u": "missing",
                     }
 
 BINARY_YNU_MAP   = {
                         "n": "no", 
                         "y": "yes", 
-                        "u": "unk"
+                        "u": "missing"
                     }
 FENCE_MAP        =  {
                         "n": "no", 
@@ -145,7 +145,7 @@ ZERO_ONE_MAP     =  {
 DECIMAL_ZERO_ONE_MAP = {
                         "0.0": "no", 
                         "1.0": "yes", 
-                        "u": "unk"
+                        "u"  : "missing"
                     }
 
 BURNT_MAP        = {
@@ -158,10 +158,10 @@ BURNT_MAP        = {
 FLOWERING_FRUITING_MAP = {
                         "y": "yes",
                         "n": "no",
-                        "t": "unk",
-                        "p": "unk",
-                        "<": "unk",
-                        "u": "unk",
+                        "t": "missing",
+                        "p": "missing",
+                        "<": "missing",
+                        "u": "missing",
                     }
 
 
@@ -286,33 +286,33 @@ def enrich(raw: dict[str, Any]) -> dict[str, Any]:
     row["state"] = clean_state(row.get("state"))
 
     categorical_transforms = [
-        (
-            "conservation_status_epbc_",
-            "conservation_status",
-            CONSERVATION_STATUS_MAP,
-            "missing",
-        ),
-        ("broad_habitat_group", "habitat", HABITAT_MAP, "unk"),
-        (
-            "translocation_type",
-            "translocation",
-            TRANSLOCATION_MAP,
-            "missing",
-        ),
-        (
-            "pre_site_preparation_all_",
-            "pre_site_prep",
-            {"0.0": "no", "1.0": "yes", "u": "unk"},
-            "missing",
-        ),
-        ("watering_all_", "watering", DECIMAL_ZERO_ONE_MAP, "missing"),
-        (
-            "burnt_0_unburnt_1_planned_2_wildfire_",
-            "burnt",
-            BURNT_MAP,
-            "missing",
-        ),
-    ]
+                                (
+                                    "conservation_status_epbc_",
+                                    "conservation_status",
+                                    CONSERVATION_STATUS_MAP,
+                                    "missing",
+                                ),
+                                ("broad_habitat_group", "habitat", HABITAT_MAP, "missing"),
+                                (
+                                    "translocation_type",
+                                    "translocation",
+                                    TRANSLOCATION_MAP,
+                                    "missing",
+                                ),
+                                (
+                                    "pre_site_preparation_all_",
+                                    "pre_site_prep",
+                                    {"0.0": "no", "1.0": "yes", "u": "unk"},
+                                    "missing",
+                                ),
+                                ("watering_all_", "watering", DECIMAL_ZERO_ONE_MAP, "missing"),
+                                (
+                                    "burnt_0_unburnt_1_planned_2_wildfire_",
+                                    "burnt",
+                                    BURNT_MAP,
+                                    "missing",
+                                ),
+                            ]
 
     for source, destination, mapping, missing_value in categorical_transforms:
         row[destination] = clean_categorical(
@@ -322,52 +322,52 @@ def enrich(raw: dict[str, Any]) -> dict[str, Any]:
             row.pop(source, None)
 
     first_character_transforms = [
-        ("soil_preparation_y_n_", "soil_prep", BINARY_YNU_MAP, "missing"),
-        (
-            "pre_planting_burn_y_n_",
-            "pre_planting_burn",
-            BINARY_YNU_MAP,
-            "missing",
-        ),
-        (
-            "pre_planting_slashing_or_weeding_y_n_",
-            "pre_planting_slashing_or_weeding",
-            BINARY_YNU_MAP,
-            "missing",
-        ),
-        (
-            "herbivore_exclosure_fence_y_n_",
-            "exclosure_fence",
-            FENCE_MAP,
-            "missing",
-        ),
-        (
-            "herbivore_exclosure_cages_y_n_",
-            "exclosure_cage",
-            BINARY_YNU_MAP,
-            "unk",
-        ),
-        ("tree_guards_y_n_", "tree_guard", BINARY_YNU_MAP, "missing"),
-        (
-            "grazing_protection_all_",
-            "grazing_protection",
-            ZERO_ONE_MAP,
-            "missing",
-        ),
-        ("mulching_y_n_", "mulch", BINARY_NY_MAP, "missing"),
-        (
-            "weeding_includes_exotic_and_native_competitors_number_of_times_or_y_n_",
-            "weeding",
-            YES_NO_MAP,
-            "missing",
-        ),
-        (
-            "reproductive_flowering_fruiting_y_n_",
-            "flowering_fruiting",
-            FLOWERING_FRUITING_MAP,
-            "missing",
-        ),
-    ]
+                                    ("soil_preparation_y_n_", "soil_prep", BINARY_YNU_MAP, "missing"),
+                                    (
+                                        "pre_planting_burn_y_n_",
+                                        "pre_planting_burn",
+                                        BINARY_YNU_MAP,
+                                        "missing",
+                                    ),
+                                    (
+                                        "pre_planting_slashing_or_weeding_y_n_",
+                                        "pre_planting_slashing_or_weeding",
+                                        BINARY_YNU_MAP,
+                                        "missing",
+                                    ),
+                                    (
+                                        "herbivore_exclosure_fence_y_n_",
+                                        "exclosure_fence",
+                                        FENCE_MAP,
+                                        "missing",
+                                    ),
+                                    (
+                                        "herbivore_exclosure_cages_y_n_",
+                                        "exclosure_cage",
+                                        BINARY_YNU_MAP,
+                                        "missing",
+                                    ),
+                                    ("tree_guards_y_n_", "tree_guard", BINARY_YNU_MAP, "missing"),
+                                    (
+                                        "grazing_protection_all_",
+                                        "grazing_protection",
+                                        ZERO_ONE_MAP,
+                                        "missing",
+                                    ),
+                                    ("mulching_y_n_", "mulch", BINARY_NY_MAP, "missing"),
+                                    (
+                                        "weeding_includes_exotic_and_native_competitors_number_of_times_or_y_n_",
+                                        "weeding",
+                                        YES_NO_MAP,
+                                        "missing",
+                                    ),
+                                    (
+                                        "reproductive_flowering_fruiting_y_n_",
+                                        "flowering_fruiting",
+                                        FLOWERING_FRUITING_MAP,
+                                        "missing",
+                                    ),
+                                ]
 
     for source, destination, mapping, missing_value in first_character_transforms:
         row[destination] =  clean_first_character(
