@@ -1,0 +1,47 @@
+[project]
+name              = "plants-package"
+version           = "0.1.0"
+description       = "Use Australian plant translocation database data to predict whether a translocated plant will survive."
+readme            = "README.md"
+authors           = [
+                      { 
+                        name  = "Chris Taylor", 
+                        email = "chris.taylor.trainingsites@gmail.com" 
+                      }
+                    ]
+requires-python     = ">=3.11"
+dependencies        = [
+                        annotated-doc       ==0.0.6
+                         + annotated-types  ==0.8.0
+                         + anyio            ==4.16.0
+                         + click            ==8.5.1
+                         + cloudpickle      ==3.1.2
+                         + fastapi          ==0.162.4
+                         + h11              ==0.16.0
+                         + idna             ==3.20
+                         + joblib           ==1.6.0
+                         + narwhals         ==2.28.0
+                         + numpy            ==2.4.6
+                         + opentelemetry-api==1.45.2
+                         + pandas           ==3.1.1
+                         + pathlib          ==1.0.1
+                         + pydantic         ==2.14.3
+                         + pydantic-core    ==2.50.4
+                         + python-dateutil  ==4.0.0
+                         + scikit-learn     ==1.9.1
+                         + scipy            ==1.17.1
+                         + starlette        ==1.10.0
+                         + threadpoolctl    ==3.8.0
+                         + typing           ==3.10.0.0
+                         + typing-extensions==4.16.0
+                         + typing-inspection==0.4.5
+                         + tzdata           ==2026.6
+                         + uvicorn          ==0.54.0
+                      ]
+
+[project.scripts] 
+plants-package    = "plants_package:main"
+
+[build-system]
+requires          = ["uv_build>=0.13.7,<0.14.0"]
+build-backend     = "uv_build"
