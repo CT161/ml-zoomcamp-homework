@@ -6,11 +6,11 @@
   "imagefolder_files": 1001,
   "classes": {
     "curly": {
-      "train": 410,
+      "train": 411,
       "test": 103
     },
     "straight": {
-      "train": 390,
+      "train": 391,
       "test": 98
     }
   },
