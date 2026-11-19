@@ -1,3 +1,5 @@
+# MIDTERM PROJECT - PREDICT WHETHER AUSTRALIAN TRANSLOCATED PLANT SPECIES WILL SURVIVE
+
 ## INTRODUCTION
 1. The work for this project was created using Jupyter Lab
 2. Development work can be found in one Jupyter Notebook: 
@@ -10,7 +12,7 @@
 1. Problem description is in `restart_2.ipynb`
 2. EDA is in `restart_2.ipynb`
 3. Model Training is in `restart_2.ipynb`
-4. Model exported to a script is here: /homework/07_midterm_project_plants/original_working_files/5
+4. Model exported to a script is here: /homework/07_midterm_project_plants/original_working_files/
 5. Reproducability can be tested using instructionss in `restart_2.ipynb`
 6. Model deployment instructions can be reviewed in `restart_2.ipynb`
 7. Dependencies are documented here:
