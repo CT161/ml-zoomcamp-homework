@@ -17,6 +17,5 @@
 6. Model deployment instructions can be reviewed in `restart_2.ipynb`
 7. Dependencies are documented here:
    - /homework/07_midterm_project_plants/plants_package/pyproject.toml
-   - /homework/07_midterm_project_plants/plants_package/Dockerfile
 9. Containerization instructions can be reviewed in `restart_2.ipynb`
 10. Instructions for a cloud deployment are found in `restart_2.ipynb` inclusive of a URL hyperlink that you can follow to see a video of a cloud-based instance of the prediction web service
