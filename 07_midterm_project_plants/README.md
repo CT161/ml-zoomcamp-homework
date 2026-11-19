@@ -1,8 +1,8 @@
 ## INTRODUCTION
 1. The work for this project was created using Jupyter Lab
-2. Developmentn work can be found in one Jupyter Notebook: \
+2. Development work can be found in one Jupyter Notebook: 
    - /homework/07_midterm_project_plants/original_working_files/restart_2.ipynb
-4. The deployment app can be found here:\
+4. The deployment app can be found here:
    - /homework/07_midterm_project_plants/plants_package
 
 
